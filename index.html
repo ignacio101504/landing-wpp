@@ -2,10 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=https://wa.me/5492345455730?text=Hola%20quiero%20más%20info" />
-  <title>Redirigiendo...</title>
+  <title>Redirigiendo a WhatsApp</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      justify-content: center;
+      align-items: center;
+      background-color: #121212;
+      color: #fff;
+      flex-direction: column;
+    }
+    .loader {
+      border: 6px solid #444;
+      border-top: 6px solid #25D366; /* verde WhatsApp */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+  </style>
 </head>
 <body>
-  <p>Redirigiendo a WhatsApp...</p>
+  <div class="loader"></div>
+  <h1>Redirigiendo a WhatsApp...</h1>
+
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://api.whatsapp.com/send?phone=5492345455730&text=Hola%20quiero%20jugar%20con%20mi%20bon0%20del%20100%25";
+    }, 2000); // 2000 ms = 2 segundos
+  </script>
 </body>
 </html>
