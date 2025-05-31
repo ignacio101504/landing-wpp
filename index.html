@@ -23,7 +23,8 @@
     }
 
     header img {
-      width: 40px;
+      width: 50px;
+      border-radius: 50%;
     }
 
     .logo-text {
@@ -92,28 +93,40 @@
       padding: 8px 15px;
       border: 1px dashed #999;
       border-radius: 10px;
-      margin-bottom: 50px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .trustpilot img {
+      margin-top: 5px;
+      max-width: 120px;
     }
 
     .notificacion {
       position: fixed;
-      bottom: 100px;
+      bottom: 110px;
       left: 20px;
       background: #111;
       color: white;
-      padding: 10px 15px;
-      border-radius: 12px;
-      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 11px;
       display: flex;
       align-items: center;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeinout 5s infinite;
+    }
+
+    @keyframes fadeinout {
+      0%,100% { opacity: 0; transform: translateY(20px); }
+      10%,90% { opacity: 1; transform: translateY(0); }
     }
 
     .notificacion img {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       border-radius: 10px;
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     .footer {
@@ -141,7 +154,7 @@
 </head>
 <body>
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <img src="https://media-eze1-1.cdn.whatsapp.net/v/t61.24694-24/473398612_638627155520225_5780710716511000316_n.jpg?ccb=11-4&oh=01_Q5Aa1gGDFkNTFfGL303mYONxULsMyWIN3J_7x_i8ag1NSxkyiQ&oe=68479010&_nc_sid=5e03e0&_nc_cat=101" alt="Logo" />
     <div class="logo-text">WhatsApp</div>
   </header>
 
@@ -166,13 +179,14 @@
   </div>
 
   <div class="trustpilot">
-    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en 🟩 Trustpilot
+    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en 🟩 Trustpilot<br/>
+    <img src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg" alt="Trustpilot" />
   </div>
 
-  <!-- Notificación de premio -->
-  <div class="notificacion">
+  <!-- Notificación dinámica -->
+  <div class="notificacion" id="notificacion">
     <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="usuario" />
-    <div>
+    <div id="noti-text">
       <strong>Exe Bosch</strong><br />
       🎁 Premio PAGADO$$<br />
       📍 Desde Rosario • hace 1 hora
@@ -182,7 +196,25 @@
   <div class="footer">
     🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
   </div>
+
+  <script>
+    const mensajes = [
+      { nombre: "Ana López", ciudad: "Córdoba", tiempo: "hace 10 min" },
+      { nombre: "Juan Pérez", ciudad: "Mendoza", tiempo: "hace 5 min" },
+      { nombre: "Lucía Méndez", ciudad: "Salta", tiempo: "hace 2 min" },
+      { nombre: "Martín Silva", ciudad: "Buenos Aires", tiempo: "recién ahora" },
+    ];
+
+    let i = 0;
+    setInterval(() => {
+      const notiText = document.getElementById("noti-text");
+      const msg = mensajes[i % mensajes.length];
+      notiText.innerHTML = `<strong>${msg.nombre}</strong><br />🎁 Premio PAGADO$$<br />📍 Desde ${msg.ciudad} • ${msg.tiempo}`;
+      i++;
+    }, 5000);
+  </script>
 </body>
 </html>
+
 
 
