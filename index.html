@@ -6,7 +6,7 @@
   <title>WhatsApp Bonos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code (AGREGADO) -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,7 +16,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '582357801126295');  <!-- Tu Pixel ID integrado aquí -->
+    fbq('init', '582357801126295'); // TU PIXEL ID
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -26,24 +26,71 @@
   <!-- End Meta Pixel Code -->
 
   <style>
-    /* ... (todo tu CSS original sigue igual) ... */
+    /* TUS ESTILOS ORIGINALES (sin cambios) */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    /* ... (todo el resto de tu CSS original permanece igual) ... */
   </style>
 </head>
 <body>
-  <!-- ... (todo el cuerpo de tu HTML original sigue igual) ... -->
+  <!-- TU LANDING ORIGINAL (sin cambios) -->
+  <header>
+    <div class="logo-text">WhatsApp Bonos</div>
+  </header>
 
-  <!-- Botón de WhatsApp con evento de conversión -->
+  <hr />
+
+  <section class="verified">
+    <img src="https://via.placeholder.com/100?text=Logo" alt="logo" />
+    <h2>✅ <b>Plataforma Verificada</b> ✅</h2>
+    <p class="green">Casino de Confianza</p>
+  </section>
+
+  <div class="message">
+    Te estamos conectando con nuestro equipo vía WhatsApp.
+  </div>
+
+  <!-- Botón con evento de conversión (solo agregué onclick) -->
   <a class="whatsapp-button" 
      href="https://wa.me/541172304277?text=Quiero%20mi%20bono%20del%20100%25" 
      target="_blank"
-     onclick="fbq('track', 'whatsapp_click');">  <!-- Evento para trackear clics -->
+     onclick="fbq('track', 'whatsapp_click');"> <!-- Evento agregado aquí -->
      Ir a WhatsApp Ahora
   </a>
 
-  <!-- ... (resto de tu HTML) ... -->
+  <div class="clientes">
+    👥 +10.000 CLIENTES GANANDO todos los días
+  </div>
 
+  <div class="trustpilot">
+    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en 🟩 Trustpilot<br/>
+    <img src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg" alt="Trustpilot" />
+  </div>
+
+  <!-- Notificación dinámica (original) -->
+  <div class="notificacion" id="notificacion">
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="usuario" />
+    <div id="noti-text">
+      <strong>Mario</strong><br />
+      🎁 Reclamó su premio de $10.000<br />
+      📍 Desde Buenos Aires • hace 1 min
+    </div>
+  </div>
+
+  <div class="footer">
+    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
+  </div>
+
+  <!-- TUS SCRIPTS ORIGINALES (sin cambios) -->
   <script>
-    // Script de notificaciones dinámicas (original)
     const premios = [
       { nombre: "Mario", monto: "$10.000", ciudad: "Buenos Aires", tiempo: "hace 1 min" },
       { nombre: "Laura", monto: "$5.500", ciudad: "Córdoba", tiempo: "hace 2 min" },
