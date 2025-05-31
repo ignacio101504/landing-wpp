@@ -1,129 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlackAds Sorteos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoción de Premios</title>
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom right, #000000, #1e0033);
-      color: white;
+      padding: 0;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
+      background: #f2f2f2;
+      color: #333;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .logo {
-      width: 200px;
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .floating-message {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px 20px;
-      border-radius: 12px;
-      margin: 10px 0;
-      width: fit-content;
-      max-width: 80%;
-      animation: slideInLeft 1s ease forwards;
-    }
-
-    .whatsapp-btn {
-      background-color: #25d366;
+    header {
+      background-color: #6a00ff;
       color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #28a745;
+      color: white;
       font-size: 18px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: bounce 2s infinite;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 30px;
     }
 
-    .whatsapp-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #25d366;
+    /* Estilos para notificaciones */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      z-index: 9999;
+      display: none;
+      animation: fadeInOut 5s ease-in-out;
     }
 
-    @keyframes slideInLeft {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
     }
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+    /* Botón flotante de WhatsApp */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
     }
 
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+    .whatsapp-button img {
+      width: 60px;
+      height: 60px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://blackads.sfo3.cdn.digitaloceanspaces.com/logo.jpg" alt="BlackAds Logo" class="logo" />
-    <h1>¡Jugá y ganá al instante!</h1>
-    <p>Entrá a nuestro sitio, jugá y podés retirar tu premio al instante por WhatsApp.</p>
-    <button class="whatsapp-btn" onclick="window.location.href='https://wa.me/5491172304277'">
-      Ir a WhatsApp para cargar
-    </button>
-    <div id="notifications"></div>
+
+  <header>
+    <h1>¡Participá por premios en efectivo y más!</h1>
+    <p>Promoción exclusiva por tiempo limitado</p>
+  </header>
+
+  <main>
+    <h2>¿Querés retirar tu premio?</h2>
+    <p>Contactanos por WhatsApp y reclamá tu beneficio ahora mismo.</p>
+    <a class="cta-button" href="https://wa.me/541172304277?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20premios" target="_blank">
+      Hablar por WhatsApp
+    </a>
+  </main>
+
+  <!-- Botón flotante de WhatsApp -->
+  <div class="whatsapp-button">
+    <a href="https://wa.me/541172304277?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20premios" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
   </div>
 
+  <!-- Contenedor de notificaciones -->
+  <div id="notification-container"></div>
+
+  <!-- Script para notificaciones automáticas -->
   <script>
-    const mensajes = [
-      "Juan acaba de ganar $500",
-      "María retiró su premio",
-      "Carlos acaba de jugar y duplicó su apuesta",
-      "Lucía ganó $1000 al instante",
-      "Pedro retiró sus ganancias",
-    ];
+    const names = ["Lucía", "Martín", "Sofía", "Juan", "Valentina", "Carlos", "Camila", "Diego"];
+    const cities = ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata", "Mar del Plata"];
+    const prizes = ["$5.000", "$10.000", "$20.000", "$50.000", "un iPhone 14", "una PlayStation 5"];
 
-    let contador = 0;
+    function showNotification() {
+      const name = names[Math.floor(Math.random() * names.length)];
+      const city = cities[Math.floor(Math.random() * cities.length)];
+      const prize = prizes[Math.floor(Math.random() * prizes.length)];
 
-    function mostrarNotificacion() {
-      const notificaciones = document.getElementById("notifications");
-      const mensaje = document.createElement("div");
-      mensaje.className = "floating-message";
-      mensaje.innerText = mensajes[contador % mensajes.length];
-      notificaciones.appendChild(mensaje);
+      const notification = document.createElement("div");
+      notification.className = "notification";
+      notification.innerText = `${name} de ${city} acaba de retirar ${prize}`;
+
+      document.getElementById("notification-container").appendChild(notification);
+      notification.style.display = "block";
 
       setTimeout(() => {
-        notificaciones.removeChild(mensaje);
-      }, 6000);
-
-      contador++;
+        notification.remove();
+      }, 5000);
     }
 
-    setInterval(mostrarNotificacion, 12000); // cada 12 segundos
+    setInterval(showNotification, Math.floor(Math.random() * 10000) + 10000);
   </script>
+
 </body>
 </html>
+
