@@ -1,131 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promoción de Premios</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Bonos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
 
     header {
-      background-color: #6a00ff;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #28a745;
-      color: white;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
       margin-top: 30px;
+      text-align: center;
     }
 
-    /* Estilos para notificaciones */
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      z-index: 9999;
-      display: none;
-      animation: fadeInOut 5s ease-in-out;
+    header img {
+      width: 40px;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      10% { opacity: 1; transform: translateY(0); }
-      90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(20px); }
+    .logo-text {
+      color: #25d366;
+      font-weight: 700;
+      font-size: 24px;
     }
 
-    /* Botón flotante de WhatsApp */
+    hr {
+      width: 100%;
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 20px 0;
+    }
+
+    .verified {
+      text-align: center;
+    }
+
+    .verified img {
+      width: 100px;
+      border-radius: 50%;
+      margin: 20px 0;
+    }
+
+    .verified h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .verified .green {
+      color: #25d366;
+      font-weight: 600;
+    }
+
+    .message {
+      background: #e8f7f0;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 16px;
+    }
+
     .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
+      background-color: #25d366;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
     }
 
-    .whatsapp-button img {
-      width: 60px;
-      height: 60px;
+    .clientes {
+      background-color: #2ec4a7;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .trustpilot {
+      font-size: 14px;
+      padding: 8px 15px;
+      border: 1px dashed #999;
+      border-radius: 10px;
+      margin-bottom: 50px;
+    }
+
+    .notificacion {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      background: #111;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .notificacion img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to right, #00d084, #25d366);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-button, .clientes {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
+      .message {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>¡Participá por premios en efectivo y más!</h1>
-    <p>Promoción exclusiva por tiempo limitado</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <div class="logo-text">WhatsApp</div>
   </header>
 
-  <main>
-    <h2>¿Querés retirar tu premio?</h2>
-    <p>Contactanos por WhatsApp y reclamá tu beneficio ahora mismo.</p>
-    <a class="cta-button" href="https://wa.me/541172304277?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20premios" target="_blank">
-      Hablar por WhatsApp
-    </a>
-  </main>
+  <hr />
 
-  <!-- Botón flotante de WhatsApp -->
-  <div class="whatsapp-button">
-    <a href="https://wa.me/541172304277?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20premios" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-    </a>
+  <section class="verified">
+    <img src="https://via.placeholder.com/100?text=Logo" alt="logo" />
+    <h2>✅ <b>Plataforma Verificada</b> ✅</h2>
+    <p class="green">Casino de Confianza</p>
+  </section>
+
+  <div class="message">
+    Te estamos conectando con nuestro equipo vía WhatsApp.
   </div>
 
-  <!-- Contenedor de notificaciones -->
-  <div id="notification-container"></div>
+  <a class="whatsapp-button" href="https://wa.me/541172304277?text=Quiero%20mi%20bono%20del%20100%25" target="_blank">
+    Ir a WhatsApp Ahora
+  </a>
 
-  <!-- Script para notificaciones automáticas -->
-  <script>
-    const names = ["Lucía", "Martín", "Sofía", "Juan", "Valentina", "Carlos", "Camila", "Diego"];
-    const cities = ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata", "Mar del Plata"];
-    const prizes = ["$5.000", "$10.000", "$20.000", "$50.000", "un iPhone 14", "una PlayStation 5"];
+  <div class="clientes">
+    👥 +10.000 CLIENTES GANANDO todos los días
+  </div>
 
-    function showNotification() {
-      const name = names[Math.floor(Math.random() * names.length)];
-      const city = cities[Math.floor(Math.random() * cities.length)];
-      const prize = prizes[Math.floor(Math.random() * prizes.length)];
+  <div class="trustpilot">
+    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en 🟩 Trustpilot
+  </div>
 
-      const notification = document.createElement("div");
-      notification.className = "notification";
-      notification.innerText = `${name} de ${city} acaba de retirar ${prize}`;
+  <!-- Notificación de premio -->
+  <div class="notificacion">
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="usuario" />
+    <div>
+      <strong>Exe Bosch</strong><br />
+      🎁 Premio PAGADO$$<br />
+      📍 Desde Rosario • hace 1 hora
+    </div>
+  </div>
 
-      document.getElementById("notification-container").appendChild(notification);
-      notification.style.display = "block";
-
-      setTimeout(() => {
-        notification.remove();
-      }, 5000);
-    }
-
-    setInterval(showNotification, Math.floor(Math.random() * 10000) + 10000);
-  </script>
-
+  <div class="footer">
+    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
+  </div>
 </body>
 </html>
+
 
